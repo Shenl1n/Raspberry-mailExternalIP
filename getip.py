@@ -89,11 +89,11 @@ if __name__ == '__main__':
     currentIP = get_ip_address()
     storedIP = read_stored_ip()
     if compare_ip_diff(storedIP, currentIP):
-        message = currentIP
-        sendEmail('smtpServerAddress', 'yourmail@mail.com', 'yourPassword',
-                  'senderEmail',
-                  ['receiverEmail'],
-                  'Your mail subject', message)
+        message = u'Hi My Ip has changed from %s to %s' % (storedIP,currentIP)
+        sendEmail('smtp.exmail.qq.com', 'shenlin@shenlin.im', 'MAZgg89dSuRzwcuv',
+                  'shenlin@shenlin.im',
+                  ['shenlinchou@outlook.com'],
+                  'Home Public IP Address Notification', message)
         write_to_file()
         print 'File updated'
     else:
